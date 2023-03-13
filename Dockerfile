@@ -25,7 +25,7 @@ RUN chmod +x /tini/tini
 FROM base as plugin
 
 COPY --from=build /tini/tini /usr/local/bin/tini
-COPY --from=build /app/docker-volume-glusterfs /usr/local/bin/docker-volume-glusterfs
+COPY ./bin/linux/docker-volume-glusterfs /usr/local/bin/docker-volume-glusterfs
 
 ENTRYPOINT ["tini", "--"]
 CMD ["docker-volume-glusterfs"]
